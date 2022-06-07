@@ -1,0 +1,15 @@
+Aula 01 - JavaScript 
+******************************
+React Js - FrontEnd
+VVeJs - FrontEnd
+Angular - FrontEnd
+
+NodeJs - Backend
+React Native - Mobile
+Ionic - Mobile
+
+Electron - Desktop
+
+Váriaveis declaraveis
+Var e Let
+------------------------------
