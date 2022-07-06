@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="myID">
+  <p>tarefas</p>
+  <form action="">
+    <input type="text" name="name" id="name" placeholder="Tarefa">
+    <input type="submit" id="send" value = "Enviar">
+  </form>
+
+  <ul id="lista">
+
+  </ul>
+
+  <script>
+    const btn = document.querySelector("#send");
+    let list = document.querySelector("#lista");
+    let lista = [];
+  
+    function update(){
+      var itens ="";
+      for(i=0; i<lista.length;i++){
+        itens+=`<li>${lista[i]}</li>`
+      }
+
+      list.innerHTML = itens;
+    }
+
+    btn.addEventListener("click", function(e){
+      e.preventDefault();
+      const name = document.querySelector("#name");
+      const value = name.value;
+      lista.push(value);
+      update();
+
+    })
+
+    
+
+  </script>
+
+</body>
+</html>
