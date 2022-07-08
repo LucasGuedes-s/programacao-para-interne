@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda telefonica</title>
+</head>
+<body>
+    <h1>Agenda tellefônica</h1>
+    <script>
+        let agenda = [];
+        let escolha;
+
+        do{
+            const menu = `
+            Cadastrar.........1
+            Visualizar........2
+            Buscar............3
+            Excluir...........4
+            `
+            let opcao = prompt(menu);
+
+            if(opcao == "1"){
+                const nome = prompt("Digite seu nome: ");
+                const telefone = prompt("Digite seu telefone: ");
+
+                const cadastro = {
+                    nome,
+                    telefone
+                }
+                agenda.push(cadastro);
+                alert("Usuário cadastrado com sucesso!");
+
+            }else if(opcao == "2"){
+                
+                let lista = "";
+                for(let i = 0; i < agenda.length; i++){
+                    lista += `
+                    ---------------------------
+                    Contato ${i+1}:
+                    Nome: ${agenda[i].nome}
+                    Telefone: ${agenda[i].telefone}
+                    `;
+                }
+                alert(lista);
+
+            }else if(opcao == "3"){
+                const nome = prompt("Digite o nome de busca: ");
+                let nome_buscado = -1;
+
+                for(let i = 0; i < agenda.length; i++){
+                    if(nome == agenda[i].nome){
+                        nome_buscado = i;
+                    }
+                }
+
+                if(nome_buscado == -1){
+                    alert("Não encontramos nenhuma pessoa com esse nome! =(");
+                }else{
+                    alert(`
+                    Nome: ${agenda[nome_buscado].nome}
+                    Telefone: ${agenda[nome_buscado].telefone}
+                    `);
+                }
+
+            }else if(opcao == "4"){
+                const nome = prompt("Digite o nome para excluir: ");
+                let nome_buscado = -1;
+
+                for(let i = 0; i < agenda.length; i++){
+                    if(nome === agenda[i].nome){
+                        nome_buscado = i;
+                    }
+                }
+
+                if(nome_buscado === -1){
+                    alert("Não encontramos nenhuma pessoa com esse nome! =(");
+                }else{
+                    agenda.splice(nome_buscado, 1);
+                    alert("Removida com sucesso!");
+                }
+            }else{
+                alert("Opção inválida!")
+            }
+
+            opcao_continuar = prompt("Deseja continuar? S/N");
+        }while(opcao_continuar === "S" || opcao_continuar === "s");
+    </script>
+</body>
+</html>
